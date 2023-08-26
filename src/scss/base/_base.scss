@@ -6,3 +6,9 @@ body {
   font-family: var(--font);
   font-size: 1.6rem;
 }
+
+body {
+  @media (width > 1024px) {
+    overflow-x: hidden;
+  }
+}
