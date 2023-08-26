@@ -2,7 +2,7 @@
   {
     "id": 1,
     "categoryId": 2,
-    "image": "../../public/images/01.png",
+    "image": "/images/01.png",
     "name": "Cassels Milk Stou",
     "description": "Cassels & Sons Brewing. Cerveza porter y stout",
     "price": "75.000"
