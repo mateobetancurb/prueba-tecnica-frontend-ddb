@@ -1,0 +1,71 @@
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+.modal {
+  position: absolute;
+  width: 375px;
+  height: 284px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.section {
+  position: relative;
+}
+
+.close__icon--container {
+  position: absolute;
+  background-color: #ffffff;
+  padding: 1rem;
+  bottom: 205px;
+  left: 290px;
+  border-radius: 0.5rem;
+  border: 2px solid #dfdfdf;
+}
+
+.close__icon--container:hover {
+  cursor: pointer;
+  background-color: #FF6961;
+  border: 2px solid #ff4339;
+  transition: 0.3s;
+}
+
+.section__h2 {
+  color: #101111;
+  text-align: start;
+  font-size: 2.04rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28.72px;
+  margin-bottom: 1rem;
+}
+
+.section__container--product {
+  display: flex;
+  padding: 1.5rem 0;
+  justify-content: space-between;
+}
+
+.section__container--product input {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.section__container--product input:hover {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=modal.css.map */
