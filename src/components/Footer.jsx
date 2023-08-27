@@ -1,6 +1,21 @@
+import { useState } from "react";
+import ReactModal from "react-modal";
+import { ModalContent } from "./ModalContent";
 import "../scss/components/footer.scss";
+import "../scss/components/modal.scss";
 
-const Footer = () => {
+const Footer = ({ setSelectedProductId }) => {
+	const [modalIsOpen, setModalIsOpen] = useState(false);
+
+	const handleModal = () => {
+		setModalIsOpen(!modalIsOpen);
+	};
+
+	const handleSelectedProduct = (productId) => {
+		setSelectedProductId(productId);
+		handleModal();
+	};
+
 	return (
 		<>
 			<footer className="footer">
@@ -48,7 +63,7 @@ const Footer = () => {
 						</p>
 					</div>
 					<div className="footer__filter">
-						<button className="footer__filter--button">
+						<button onClick={handleModal} className="footer__filter--button">
 							FILTRAR
 							<img
 								src="/icons/filters.svg"
@@ -58,6 +73,18 @@ const Footer = () => {
 						</button>
 					</div>
 				</section>
+				<ReactModal
+					isOpen={modalIsOpen}
+					onRequestClose={handleModal}
+					contentLabel="Modal"
+					appElement={document.getElementById("root")}
+					className="modal"
+				>
+					<ModalContent
+						handleModal={handleModal}
+						handleSelectedProduct={handleSelectedProduct}
+					/>
+				</ReactModal>
 			</footer>
 		</>
 	);
