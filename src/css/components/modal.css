@@ -110,6 +110,13 @@
   line-height: 2.03rem;
 }
 
+.modal__button--enable:hover {
+  cursor: pointer;
+  transition: 0.3s;
+  background-color: #c7c7c7;
+  border-radius: 4px;
+}
+
 .modal__filter--button {
   display: flex;
   justify-content: space-between;
@@ -130,6 +137,20 @@
   background-color: rgb(16, 16, 255);
   cursor: pointer;
   transition: 0.3s;
+}
+
+.container__number--filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  padding: 0 1rem;
+  background-color: #ffffff;
+  border-radius: 40px;
+}
+
+.container__number--filter p {
+  color: #000000;
 }
 
 /*# sourceMappingURL=modal.css.map */
