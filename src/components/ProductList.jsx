@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import products from "../data/products.json";
 import "../scss/components/product-list.scss";
 
-const ProductList = () => {
+const ProductList = ({ selectedProductId }) => {
 	const [productList, setProductList] = useState([]);
 	const [loading, setLoading] = useState(true);
 
@@ -16,6 +16,10 @@ const ProductList = () => {
 		}
 	}, []);
 
+	const filteredProductList = selectedProductId
+		? productList.filter((product) => product.categoryId === selectedProductId)
+		: productList;
+
 	return (
 		<>
 			<main className="main">
@@ -24,7 +28,7 @@ const ProductList = () => {
 					{loading ? (
 						<p>Loading...</p>
 					) : (
-						productList.map((product) => (
+						filteredProductList.map((product) => (
 							<div key={product?.id} className="product__container">
 								<div className="product__info">
 									<img
