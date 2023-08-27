@@ -21,6 +21,11 @@
   gap: 1.5rem;
 }
 
+.header__container img:hover {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
 .shopping__cart {
   position: relative;
 }
