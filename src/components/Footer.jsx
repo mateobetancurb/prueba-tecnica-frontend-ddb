@@ -4,7 +4,7 @@ import { ModalContent } from "./ModalContent";
 import "../scss/components/footer.scss";
 import "../scss/components/modal.scss";
 
-const Footer = ({ setSelectedProductId }) => {
+const Footer = ({ setSelectedProductId, selectedProductId }) => {
 	const [modalIsOpen, setModalIsOpen] = useState(false);
 
 	const handleModal = () => {
@@ -83,6 +83,7 @@ const Footer = ({ setSelectedProductId }) => {
 					<ModalContent
 						handleModal={handleModal}
 						handleSelectedProduct={handleSelectedProduct}
+						selectedProductId={selectedProductId}
 					/>
 				</ReactModal>
 			</footer>

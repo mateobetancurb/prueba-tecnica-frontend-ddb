@@ -10,7 +10,10 @@ const App = () => {
 		<>
 			<Header />
 			<ProductList selectedProductId={selectedProductId} />
-			<Footer setSelectedProductId={setSelectedProductId} />
+			<Footer
+				setSelectedProductId={setSelectedProductId}
+				selectedProductId={selectedProductId}
+			/>
 		</>
 	);
 };
