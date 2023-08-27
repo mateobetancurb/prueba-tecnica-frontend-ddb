@@ -119,6 +119,12 @@
   margin: 1.5rem 4rem 3.5rem auto;
 }
 
+.continue__shopping--container:hover {
+  cursor: pointer;
+  transition: 0.3s;
+  background-color: #F4F4F4;
+}
+
 .continue__shopping--container {
   @media (width > 1024px) {
     width: 61vw;
