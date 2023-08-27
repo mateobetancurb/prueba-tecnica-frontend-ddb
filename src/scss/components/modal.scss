@@ -13,13 +13,19 @@
 
 .modal {
   position: absolute;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
   width: 375px;
   height: 284px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.modal__content {
   padding: 20px;
-  background-color: #f9f9f9;
 }
 
 .section {
@@ -66,4 +72,63 @@
 
 .section__container--product input:hover {
   cursor: pointer;
+}
+
+.modal__footer {
+  background-color: #F4F4F4;
+  width: 375px;
+  padding: 12px 20px;
+  margin-top: auto;
+}
+
+.modal__buttons--container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  height: 4rem;
+}
+
+
+.modal__clear--button {
+  color: #101111;
+  text-align: center;
+  font-size: 1.416rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20.03px;
+  border-radius: 4px;
+  border: 1px solid #E5E5E5;
+  opacity: 0.5;
+  background: #FFF;
+}
+
+.modal__button--enable {
+  color: #101111;
+  font-weight: 700;
+  font-size: 1.416rem;
+  font-style: normal;
+  text-align: center;
+  line-height: 2.03rem;
+}
+
+.modal__filter--button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--blue);
+  color: #FFF;
+  text-align: center;
+  font-size: 1.416rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20.03px;
+  padding: 7.5px 21px;
+  border-radius: 4px;
+  cursor: default
+}
+
+.modal__filter--button:hover {
+  background-color: rgb(16, 16, 255);
+  cursor: pointer;
+  transition: 0.3s;
 }
