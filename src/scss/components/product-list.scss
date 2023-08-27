@@ -100,6 +100,13 @@
   flex: 1;
 }
 
+.product__button:hover {
+  cursor: pointer;
+  background-color: var(--blue);
+  color: #ffffff;
+  transition: 0.3s;
+}
+
 .continue__shopping--container {
   display: flex;
   height: 7.2rem;
