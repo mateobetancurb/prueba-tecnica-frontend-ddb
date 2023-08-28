@@ -1,20 +1,26 @@
 import { useState, useEffect } from "react";
+import { useGlobalState } from "../hooks/useGlobalState";
 import "../scss/components/modal.scss";
 
-const ModalContent = ({
-	handleModal,
-	handleSelectedProduct,
-	selectedProductId,
-}) => {
+const ModalContent = ({ handleModal }) => {
+	const { selectedProductIds, setSelectedProductIds } = useGlobalState();
+	const [numberFilterActive, setNumberFilterActive] = useState(0);
+
 	const handleCheckboxChange = (e) => {
-		const selectProductId = e.target.value;
-		handleSelectedProduct(selectProductId);
+		const selectedProductId = e.target.value;
+		if (selectedProductIds.includes(selectedProductId)) {
+			setSelectedProductIds(
+				selectedProductIds.filter((id) => id !== selectedProductId)
+			);
+		} else {
+			setSelectedProductIds([...selectedProductIds, selectedProductId]);
+		}
 	};
 
 	const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
 	const handleButton = () => {
-		if (selectedProductId) {
+		if (selectedProductIds.length > 0) {
 			setIsButtonDisabled(false);
 		} else {
 			setIsButtonDisabled(true);
@@ -23,7 +29,7 @@ const ModalContent = ({
 
 	useEffect(() => {
 		handleButton();
-	}, [selectedProductId]);
+	}, [selectedProductIds]);
 
 	return (
 		<>
@@ -69,6 +75,10 @@ const ModalContent = ({
 				<div className="modal__footer">
 					<div className="modal__buttons--container">
 						<button
+							onClick={() => {
+								setSelectedProductIds([]);
+								handleModal();
+							}}
 							className={
 								isButtonDisabled
 									? "modal__clear--button"
@@ -77,13 +87,22 @@ const ModalContent = ({
 						>
 							LIMPIAR
 						</button>
-						<button className="modal__filter--button">
+						<button
+							onClick={() => {
+								setSelectedProductIds(selectedProductIds);
+								handleModal();
+							}}
+							className="modal__filter--button"
+						>
 							FILTRAR
 							<img
 								src="/icons/filters.svg"
 								alt="Filter icon"
 								className="footer__filter--icon"
 							/>
+							<div className="container__number--filter">
+								<p>{selectedProductIds.length}</p>
+							</div>
 						</button>
 					</div>
 				</div>
