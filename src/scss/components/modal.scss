@@ -70,6 +70,15 @@
   height: 2.4rem;
 }
 
+.section__container--product input {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+input[type='checkbox'] {
+  accent-color: var(--blue);
+}
+
 .section__container--product input:hover {
   cursor: pointer;
 }
