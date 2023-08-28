@@ -1,10 +1,12 @@
 import { useState } from "react";
 import ReactModal from "react-modal";
 import { ModalContent } from "./ModalContent";
+import { useGlobalState } from "../hooks/useGlobalState";
 import "../scss/components/footer.scss";
 import "../scss/components/modal.scss";
 
-const Footer = ({ setSelectedProductId, selectedProductId }) => {
+const Footer = () => {
+	const { setSelectedProductId } = useGlobalState();
 	const [modalIsOpen, setModalIsOpen] = useState(false);
 
 	const handleModal = () => {
@@ -83,7 +85,6 @@ const Footer = ({ setSelectedProductId, selectedProductId }) => {
 					<ModalContent
 						handleModal={handleModal}
 						handleSelectedProduct={handleSelectedProduct}
-						selectedProductId={selectedProductId}
 					/>
 				</ReactModal>
 			</footer>
