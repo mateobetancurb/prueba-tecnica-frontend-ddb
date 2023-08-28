@@ -1,24 +1,8 @@
-import { useState, useEffect } from "react";
-import products from "../data/products.json";
+import { useGlobalState } from "../hooks/useGlobalState";
 import "../scss/components/product-list.scss";
 
-const ProductList = ({ selectedProductId }) => {
-	const [productList, setProductList] = useState([]);
-	const [loading, setLoading] = useState(true);
-
-	useEffect(() => {
-		try {
-			setProductList(products);
-		} catch (error) {
-			console.log(error);
-		} finally {
-			setLoading(false);
-		}
-	}, []);
-
-	const filteredProductList = selectedProductId
-		? productList.filter((product) => product.categoryId === selectedProductId)
-		: productList;
+const ProductList = () => {
+	const { loading, filteredProductList } = useGlobalState();
 
 	return (
 		<>
