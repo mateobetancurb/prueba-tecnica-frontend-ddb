@@ -6,14 +6,27 @@ const ModalContent = ({ handleModal }) => {
 	const { selectedProductIds, setSelectedProductIds } = useGlobalState();
 	const [numberFilterActive, setNumberFilterActive] = useState(0);
 
+	const [checkboxStates, setCheckboxStates] = useState({
+		1: false,
+		2: false,
+		3: false,
+	});
+
 	const handleCheckboxChange = (e) => {
 		const selectedProductId = e.target.value;
-		if (selectedProductIds.includes(selectedProductId)) {
+		const isChecked = e.target.checked;
+
+		setCheckboxStates((prevState) => ({
+			...prevState,
+			[selectedProductId]: isChecked,
+		}));
+
+		if (isChecked) {
+			setSelectedProductIds([...selectedProductIds, selectedProductId]);
+		} else {
 			setSelectedProductIds(
 				selectedProductIds.filter((id) => id !== selectedProductId)
 			);
-		} else {
-			setSelectedProductIds([...selectedProductIds, selectedProductId]);
 		}
 	};
 
@@ -26,6 +39,14 @@ const ModalContent = ({ handleModal }) => {
 			setIsButtonDisabled(true);
 		}
 	};
+
+	useEffect(() => {
+		const updatedCheckboxStates = {};
+		selectedProductIds.forEach((id) => {
+			updatedCheckboxStates[id] = true;
+		});
+		setCheckboxStates(updatedCheckboxStates);
+	}, [selectedProductIds]);
 
 	useEffect(() => {
 		handleButton();
@@ -48,6 +69,7 @@ const ModalContent = ({ handleModal }) => {
 								type="checkbox"
 								name="Rubia"
 								value="1"
+								checked={checkboxStates["1"]}
 							/>
 						</div>
 						<img src="/icons/rectangle-large.png" alt="Rectangle icon" />
@@ -58,6 +80,7 @@ const ModalContent = ({ handleModal }) => {
 								type="checkbox"
 								name="Morena"
 								value="2"
+								checked={checkboxStates["2"]}
 							/>
 						</div>
 						<img src="/icons/rectangle-large.png" alt="Rectangle icon" />
@@ -68,6 +91,7 @@ const ModalContent = ({ handleModal }) => {
 								type="checkbox"
 								name="Roja"
 								value="3"
+								checked={checkboxStates["3"]}
 							/>
 						</div>
 					</section>
