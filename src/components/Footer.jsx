@@ -6,7 +6,7 @@ import "../scss/components/footer.scss";
 import "../scss/components/modal.scss";
 
 const Footer = () => {
-	const { setSelectedProductId } = useGlobalState
+	const { setSelectedProductId } = useGlobalState(
 	const [modalIsOpen, setModalIsOpen] = useState(false);
 
 	const handleModal = () => {
